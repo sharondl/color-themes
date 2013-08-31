@@ -1,0 +1,45 @@
+###Theme Extraction parameters
+#Image directory, when extracting themes
+dir > ../../images/
+
+#C3 colornames json file and model weights directory
+json > ../../../c3/data/xkcd/c3_data.json
+weightsDir > ../../weights/
+
+###Training parameters
+#Training images directory
+trainInDir > ../../eval/set1
+
+#Reference themes when outputting features(relative to train in directory)
+trainRef > turk.tsv^filter
+
+#Where features are outputted
+trainOutDir > ../../train/
+
+###Evaluation parameters
+#The files to compare against (relative to the eval directory)
+evalInOutDir > ../../eval/set1/
+ref > turk^turk.tsv^filter
+ref > art^art.tsv
+
+#The file that specifies what keys/images to compare on
+#The test set, relative to the eval directory
+refkeys > art.tsv
+
+#The files to compare in the eval directory
+compare > art^art.tsv
+compare > turk^turk.tsv^filter
+compare > optimal^optimized.tsv
+compare > kmeans^kmeans.tsv
+compare > cmeans^cmeans.tsv
+compare > random^random.tsv
+compare > oracleArt^oracle-art.tsv
+compare > oracleTurk^oracle-turk.tsv
+
+#For diagramming, which themes should be to the left of the swatches, which themes should be to the right of the swatches
+#Paths relative to the eval directory
+diagramLeft > Opt^optimized.tsv
+diagramLeft > CM^cmeans.tsv
+diagramLeft > KM^kmeans.tsv
+diagramRight > Turk^turk.tsv
+diagramRight > Art^art.tsv
