@@ -32,6 +32,8 @@ The code has been tested on Windows 7.
 * __Engine__ - the main library
  * __PaletteExtractor__ - extracts color themes from images with `HillClimbPalette()`
  
+## Dataset
+**Dataset 1** from the paper is available [here](http://graphics.stanford.edu/~sharonl/papers/colorThemes-dataset.zip). Download and copy the **eval/** directory to **PaletteExtraction**
  
 ## Additional Notes
 **calculateFeatures** will generate 1000 random color themes with scores uniformly spread across a number of bins (if it hasn't already been generated). The code currently just uses rejection sampling, so this process can be very slow as it's hard to find very good or very bad color themes. Once the random themes are generated, the rest of the method takes about 4 hours for 40 (500x~300) images.

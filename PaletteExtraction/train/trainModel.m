@@ -1,5 +1,5 @@
 % Set the code directory and dataset
-addpath('glmnet_matlab/')
+addpath('../../vendor/glmnet_matlab/')
 imageNames = 'imageNames.txt';
 dataset= 'features.csv';
 featureNames= 'featurenames.txt';
