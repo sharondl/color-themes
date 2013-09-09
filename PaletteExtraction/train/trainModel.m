@@ -59,10 +59,6 @@ fclose(fid);
 datapoints.featureNames = fnames{1};
 datapoints.imageNames = inames{1};
 
-namePerm = randperm(length(datapoints.features(1,:)));
-datapoints.features = datapoints.features(:, namePerm);
-datapoints.featureNames = datapoints.featureNames(namePerm);
-
 testImages = zeros(1,length(testImageNames));
 for i=1:length(testImageNames)
     testImages(i) = find(strcmp(testImageNames(i),datapoints.imageNames));
@@ -119,7 +115,6 @@ for i=1:length(datapoints.featureNames)
     fprintf('%d %s, %.4f \n ',i, datapoints.featureNames{idx(i)},fit.beta(idx(i)))
 end
 
-% Save the weights
 if (~analyze)
     dlmwrite('fittedWeights.csv',fit.beta);
 end
