@@ -844,8 +844,8 @@ namespace Engine
                 Bbounds[1] = Math.Max(Bbounds[1], lab.B);
 
                 double s = rgb.GetSaturation();
-                Satbounds[0] = Math.Min(Lbounds[0], s);
-                Satbounds[1] = Math.Max(Lbounds[1], s);
+                Satbounds[0] = Math.Min(Satbounds[0], s);
+                Satbounds[1] = Math.Max(Satbounds[1], s);
             }
 
 
@@ -1032,6 +1032,7 @@ namespace Engine
             double meansegsd = 0;
             double nmeansegsd = 0;
 
+            double epsilon = 0.0001;
 
             watch.Start();
 
@@ -1075,7 +1076,7 @@ namespace Engine
             double Lcov = Math.Min(Lspan, options.Lspan) / Math.Max(Math.Max(Lspan, options.Lspan), 1);
             double Acov = Math.Min(Aspan, options.Aspan) / Math.Max(Math.Max(Aspan, options.Aspan), 1);
             double Bcov = Math.Min(Bspan, options.Bspan) / Math.Max(Math.Max(Bspan, options.Bspan), 1);
-            double Scov = Math.Min(Satspan, options.Satspan) / Math.Max(Math.Max(Satspan, options.Satspan), 1);
+            double Scov = Math.Min(Satspan, options.Satspan) / Math.Max(Math.Max(Satspan, options.Satspan), epsilon);
 
 
 
@@ -1216,7 +1217,6 @@ namespace Engine
                    }
 
 
-                   double epsilon = 0.0001;
 
                    for (int j = 0; j < height; j++)
                    {
