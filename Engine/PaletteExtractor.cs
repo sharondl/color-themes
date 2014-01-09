@@ -1931,6 +1931,7 @@ namespace Engine
                         //find the best swatch replacement for this color
                         double bestTempScore = optionScore;
                         CIELAB bestRep = option.lab[i];
+                        Color bestRGB = option.colors[i];
 
 
                         double[] scores = new double[swatches.lab.Count()];
@@ -1971,6 +1972,7 @@ namespace Engine
                             {
                                 bestTempScore = scores[s];
                                 bestRep = swatches.lab[s];
+                                bestRGB = swatches.colors[s];
                             }
                         }
 
@@ -1978,6 +1980,7 @@ namespace Engine
                         if (!option.lab[i].Equals(bestRep))
                         {
                             option.lab[i] = bestRep;
+                            option.colors[i] = bestRGB;
                             optionScore = bestTempScore;
                             changes++;
                         }
